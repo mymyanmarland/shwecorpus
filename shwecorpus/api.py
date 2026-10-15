@@ -16,7 +16,7 @@ import os
 import re
 import sqlite3
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_file
 
 from .proofread import DEFAULT_DB, fix_text, load_reference, proofread_text
 from .tokenizer import syllables
@@ -27,6 +27,7 @@ MAX_WORD = 40
 app = Flask(__name__)
 app.json.ensure_ascii = False  # serve real Myanmar characters, not \uXXXX escapes
 DB_PATH = os.environ.get("SHWECORPUS_DB", DEFAULT_DB)
+PKG_DIR = os.path.dirname(os.path.abspath(__file__))
 
 _ref = None
 _doc_count = None
@@ -70,6 +71,10 @@ def _examples(word, limit=3, window=40):
 
 @app.get("/")
 def index():
+    """Try-it page (falls back to JSON service info if the file is missing)."""
+    page = os.path.normpath(os.path.join(PKG_DIR, "..", "web", "index.html"))
+    if os.path.exists(page):
+        return send_file(page)
     return jsonify({
         "name": "ShweCorpus",
         "version": "0.1.0",
