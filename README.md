@@ -1,12 +1,17 @@
-# ShweCorpus
+<p align="center">
+  <img src="assets/header.svg" alt="ShweCorpus — Open Burmese Language Data Infrastructure" width="100%">
+</p>
 
-Open Burmese language data infrastructure — a cleaned Myanmar Wikipedia
-corpus, a Wikipedia-verified Burmese proofreader, a rule-based syllable
-tokenizer, and a free HTTP API on top.
+<p align="center">
+  <b>Open Burmese language data infrastructure</b> — a cleaned Myanmar Wikipedia
+  corpus, a Wikipedia-verified Burmese proofreader, a rule-based syllable
+  tokenizer, and a free HTTP API on top.
+</p>
 
-**v0.1** · Code: MIT · Corpus data: CC BY-SA 4.0 (derived from Myanmar Wikipedia)
-
-Live demo: https://shwecorpus.kmnapps.xyz
+<p align="center">
+  <b>v0.1</b> · Code: MIT · Corpus data: CC BY-SA 4.0 (derived from Myanmar Wikipedia) ·
+  Live demo: <a href="https://shwecorpus.kmnapps.xyz">shwecorpus.kmnapps.xyz</a>
+</p>
 
 ## မြန်မာ အကျဉ်းချုပ်
 
@@ -20,6 +25,12 @@ scratch. ShweCorpus packages the basics once, openly, so the next Burmese
 chatbot, search engine, or writing tool starts from working parts instead of
 an empty folder.
 
+## How it works
+
+<p align="center">
+  <img src="assets/flow.svg" alt="ShweCorpus pipeline: corpus → proofread → tokenize → API" width="100%">
+</p>
+
 ## What's inside
 
 | Path | What |
@@ -32,6 +43,7 @@ an empty folder.
 | `benchmarks/` | Generated proofreading benchmark + runner |
 | `examples/` | Library quickstart and curl examples |
 | `web/index.html` | Minimal try-it page for the demo |
+| `assets/` | Animated SVG banner + pipeline diagram for this README |
 
 ## Quickstart
 
