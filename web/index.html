@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShweCorpus — Open Burmese Language Data Infrastructure</title>
+<style>
+  :root { color-scheme: light; }
+  body { font-family: "Noto Serif Myanmar", "Padauk", serif; max-width: 720px;
+         margin: 2rem auto; padding: 0 1rem; line-height: 1.7; color: #1a1a1a; }
+  h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+  textarea { width: 100%; min-height: 120px; font-size: 1.05rem; padding: .6rem;
+             font-family: inherit; border: 1px solid #ccc; border-radius: 8px; }
+  button { padding: .6rem 1.2rem; font-size: 1rem; border: 0; border-radius: 8px;
+           background: #005e62; color: #fff; cursor: pointer; margin: .4rem .4rem 0 0; }
+  button:disabled { opacity: .5; }
+  pre { background: #f4f4f4; padding: .8rem; border-radius: 8px; overflow-x: auto;
+        font-size: .9rem; white-space: pre-wrap; }
+  code { background: #f4f4f4; padding: .1rem .35rem; border-radius: 4px; }
+  .ok { color: #0a7a1a; font-weight: bold; } .bad { color: #b00020; font-weight: bold; }
+  a { color: #005e62; }
+</style>
+</head>
+<body>
+<h1>ShweCorpus</h1>
+<p>Open Burmese language data infrastructure — cleaned Myanmar Wikipedia corpus,
+Wikipedia-verified proofreader, syllable tokenizer, and a free HTTP API.
+<a href="https://github.com/mymyanmarland/shwecorpus">GitHub</a> · MIT (code) / CC BY-SA 4.0 (data)</p>
+
+<h2>Try the proofreader</h2>
+<textarea id="text" placeholder="Paste Burmese text here…"></textarea><br>
+<button id="check" onclick="run(false)">Check</button>
+<button id="fix" onclick="run(true)">Check + auto-fix</button>
+<pre id="out">Result appears here.</pre>
+
+<h2>API</h2>
+<pre>GET  /v1/health
+POST /v1/proofread   {"text": "...", "fix": true}
+POST /v1/tokenize    {"text": "..."}
+GET  /v1/word/&lt;word&gt;</pre>
+<p>Full docs and examples in <code>examples/curl.md</code> in the repo.</p>
+
+<script>
+async function run(fix) {
+  const out = document.getElementById('out');
+  const text = document.getElementById('text').value;
+  out.textContent = 'Checking…';
+  try {
+    const r = await fetch('/v1/proofread', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({text, fix})
+    });
+    const j = await r.json();
+    if (j.clean) { out.innerHTML = '<span class="ok">Clean — no issues found.</span>'; return; }
+    let s = '';
+    const n = k => j[k].length;
+    s += `R1 spurious-E: ${n('r1_spurious_e')} · R2 wrong-AA: ${n('r2_wrong_aa')} · ` +
+         `ay-vowel: ${n('ay_vowel_spurious_aa')} · R3 suspects: ${n('r3_suspects')}\n\n`;
+    for (const x of j.r3_suspects.slice(0, 10))
+      s += `R3: ${x.word} → ${x.candidate} (drop ${x.dropped_mark})\n`;
+    if (fix && j.fixed_text) s += '\nFixed text:\n' + j.fixed_text;
+    out.textContent = s;
+  } catch (e) { out.textContent = 'Error: ' + e.message; }
+}
+</script>
+</body>
+</html>
