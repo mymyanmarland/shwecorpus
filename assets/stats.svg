@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 150" width="1280" height="150" role="img" aria-label="ShweCorpus stats">
+  <rect width="1280" height="150" fill="#071018" rx="18"/>
+  <g font-family="-apple-system,'Segoe UI',sans-serif" text-anchor="middle">
+    <g>
+      <text x="200" y="72" font-size="46" font-weight="800" fill="#f6d47c"
+            font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">205</text>
+      <text x="200" y="104" font-size="15" fill="#9fb3c8" letter-spacing="2">WIKIPEDIA DOCS</text>
+      <rect x="170" y="116" width="60" height="4" rx="2" fill="#2dd4bf">
+        <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></rect>
+    </g>
+    <g>
+      <text x="520" y="72" font-size="46" font-weight="800" fill="#f6d47c"
+            font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">147/147</text>
+      <text x="520" y="104" font-size="15" fill="#9fb3c8" letter-spacing="2">BENCHMARK PASSING</text>
+      <rect x="490" y="116" width="60" height="4" rx="2" fill="#2dd4bf">
+        <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="0.75s" repeatCount="indefinite"/></rect>
+    </g>
+    <g>
+      <text x="840" y="72" font-size="46" font-weight="800" fill="#f6d47c"
+            font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">4</text>
+      <text x="840" y="104" font-size="15" fill="#9fb3c8" letter-spacing="2">RULE FAMILIES</text>
+      <rect x="810" y="116" width="60" height="4" rx="2" fill="#2dd4bf">
+        <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1.5s" repeatCount="indefinite"/></rect>
+    </g>
+    <g>
+      <text x="1120" y="72" font-size="46" font-weight="800" fill="#f6d47c"
+            font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">100%</text>
+      <text x="1120" y="104" font-size="15" fill="#9fb3c8" letter-spacing="2">OPEN SOURCE</text>
+      <rect x="1090" y="116" width="60" height="4" rx="2" fill="#2dd4bf">
+        <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="2.25s" repeatCount="indefinite"/></rect>
+    </g>
+  </g>
+</svg>
