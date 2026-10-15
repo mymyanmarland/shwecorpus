@@ -13,6 +13,12 @@
   Live demo: <a href="https://shwecorpus.kmnapps.xyz">shwecorpus.kmnapps.xyz</a>
 </p>
 
+## Live demo
+
+<p align="center">
+  <img src="assets/demo.svg" alt="Animated terminal: proofreading a corrupted word via the API" width="100%">
+</p>
+
 ## မြန်မာ အကျဉ်းချုပ်
 
 ShweCorpus သည် မြန်မာ ဘာသာစကား အတွက် open source ဘာသာစကား အချက်အလက် အခြေခံ အဆောက်အအုံ ဖြစ်သည်။ Wikipedia corpus၊ စာလုံးပေါင်း စစ်ဆေးခြင်း API၊ စကားလုံး ခွဲခြမ်း ရန် ကိရိယာ များ ပါဝင် သည်။ Developer များ အခမဲ့ ရယူ သုံး နိုင် သည်။ အသေးစိတ် ကို အောက် ပါ English အပိုင်း တွင် ဖတ် နိုင် သည်။
@@ -31,6 +37,16 @@ an empty folder.
   <img src="assets/flow.svg" alt="ShweCorpus pipeline: corpus → proofread → tokenize → API" width="100%">
 </p>
 
+## Features
+
+<p align="center">
+  <img src="assets/features.svg" alt="ShweCorpus features: proofread, tokenize, word lookup, corpus" width="100%">
+</p>
+
+<p align="center">
+  <img src="assets/stats.svg" alt="ShweCorpus stats: 205 docs, 147/147 benchmark, 4 rule families, 100% open source" width="100%">
+</p>
+
 ## What's inside
 
 | Path | What |
@@ -43,7 +59,7 @@ an empty folder.
 | `benchmarks/` | Generated proofreading benchmark + runner |
 | `examples/` | Library quickstart and curl examples |
 | `web/index.html` | Minimal try-it page for the demo |
-| `assets/` | Animated SVG banner + pipeline diagram for this README |
+| `assets/` | Animated SVGs for this README (banner, live demo, pipeline, features, stats) |
 
 ## Quickstart
 
